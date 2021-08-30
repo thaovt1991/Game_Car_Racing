@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./game_car.css" type="text/css">
+</head>
+
+<body>
+
+    <div id ="game"> 
+        <canvas id="gameLine" width="310px" height="600px"></canvas>
+        <canvas id="gameCar" width="310px" height="600px"></canvas>
+        <canvas id="gameItem" width="310px" height="600px"></canvas>
+        <canvas id="gameBarrier" width="310px" height="600px"></canvas>
+        <canvas id="gameOver" width="310px" height="600px" style="display: none;"></canvas>
+    </div>
+
+
+    <fieldset id ="controlGame">
+        <legend style="color: darkorange;">Car Racing</legend>
+        <button type="button" id="btstart" onclick="btstartGame()">Start Game</button>
+        <button type="button" id="btpause" onclick="pauseGame()" disabled>Pause Game</button>
+        <button type="button" id="btrestart" onclick="btrestartGame()" disabled>Restart Game</button><br><br>
+        Enegy : <span id="enegy"></span><br><br>
+        Score : <span id="score"></span> <br><br>
+        Score Charts <br>
+        <textarea id="displayArrPoint"   cols="35" rows="10" style="font-size: 15px; resize: none;"   disabled></textarea> <br><br>
+        <button type="button" id="btoption" onclick="displayOption()">Option Game</button>
+    </fieldset>
+    <fieldset id="optionGame" style="display: none;">
+        <legend style="color: darkorange;font-size: 30px;">Game Option</legend>
+        <br>
+        Volume : <input id="vol" type="range" min=0 max="10000" value="8000" onclick="changeVol()">
+        <input type="checkbox" id="mute" onclick="checkedMute()">Mute <br><br><br><br>
+        <table>
+            <caption style="font-weight: bolder;font-family: Arial, Helvetica, sans-serif;"> Select Car Skin </caption>
+            <tr>
+                <td> <img src="./image/car_green.png" alt="car_green" width="60" height="80"></td>
+                <td><img src="./image/car_red.png" alt="car_red"width="60" height="80"></td>
+                <td><img src="./image/car_yellow.png" alt="car_yellow"width="60" height="80"></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name = "car_skin" id="car_green" value="car_green" checked></td>
+                <td><input type="radio"name = "car_skin" id ="car_red" value="car_red"></td>
+                <td><input type="radio"name = "car_skin" id = "car_yellow" value="car_yellow"></td>
+            </tr>
+
+        </table>
+        
+        <br><br>
+
+        <button type="button" style="width: 71px;" onclick="saveOption()">Save</button>
+        <button type="button" style="width: 71px;"  onclick="cancelOption()">Cancel</button>
+        <button type="button" style="width: 71px;"  onclick="defaultOption()">Default</button>
+        <button type="button" style="width: 71px;" onclick="exitOption()">Exit</button>
+    </fieldset>
+    <audio id="music_stargame" loop>
+        <source src="./audio/music_game.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="./game_car_option.js"></script>
+    <script src="./game_car_barrier.js"></script>
+    <script src="./game_car_item.js"></script>
+    <script src="./game_car_car.js"></script>
+    <script src="./game_car_point.js"></script>
+    <script src="./game_car_line.js"></script>
+
+
+
+</body>
+
+</html>
