@@ -94,6 +94,6 @@ button:disabled{
 #optionGame{
    font-size: 20px;
    color:red;
-   width: 310px;
+   /* width: 310px; */
    height: 590px;
 }

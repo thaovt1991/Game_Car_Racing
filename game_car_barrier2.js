@@ -92,7 +92,7 @@ let leftBar2 = 0 ;
  if ((bar.left - this.width) > 0 ) {
     leftBar2 = Math.floor(Math.random() * (bar.left - this.width));
  } else {
-     leftBar2 = Math.floor(Math.random() * (310  - (bar.width + bar.left))) + (bar.width + bar.left) - this.width
+     leftBar2 = Math.floor(Math.random() * (250  - (bar.width + bar.left))) + (bar.width + bar.left) - this.width
 }
 
 let bar2 = new Barrier(imageBar2, leftBar2, topBar2, widthBar2, heightBar2);

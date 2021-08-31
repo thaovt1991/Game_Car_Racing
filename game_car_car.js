@@ -5,6 +5,19 @@ class Car {
         this.height = height;
         this.width = width;
         this.enegy = 50;
+        this.numBullet = 5 ;
+    }
+    getNumBullet(){
+       return this.numBullet ;
+    }
+    setNumBullet(num){
+        this.numBullet = num ;
+     }
+    attackBarrier(){
+        if (this.numBullet >0){
+        return this.numBullet --;}else{
+          return  this.numBullet = 0 ;
+        }
     }
     setCar(l, t, w, h) {
         this.left = l;
@@ -64,18 +77,18 @@ class Car {
 
     runLeft() {
         if (this.left > 0) {
-            this.left -= 5;
+            this.left -= 10;
         } else { this.left }
-        this.clearCar(this.left + 5, this.top, this.width, this.height)
+        this.clearCar(this.left + 10, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
 
     };
 
     runRight() {
         if (this.left < 310 - this.width) {
-            this.left += 5;
+            this.left += 10;
         } else { this.left }
-        this.clearCar(this.left - 5, this.top, this.width, this.height)
+        this.clearCar(this.left - 10, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
     };
 
@@ -198,10 +211,10 @@ class Car {
         var image = new Image();
         this.imageCar = "./image/car_green.png";
         switch (true) {
-            case arrBeforOp[3]:
+            case arrBeforOp[5]:
                 this.imageCar = "./image/car_red.png"
                 break;
-            case arrBeforOp[4]:
+            case arrBeforOp[6]:
                 this.imageCar = "./image/car_yellow.png"
                 break;
         }
@@ -276,6 +289,7 @@ function dislayGameOver() {
     document.getElementById("gameOver").style.display = "block";
     document.getElementById("gameOver").style.zIndex = "10";
     document.getElementById("gameOver").style.position = "absolute";
+    document.querySelector('#music_endgame').play();
 };
 
 

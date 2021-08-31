@@ -3,6 +3,7 @@ let endGame = false;
 let pause = false;
 
 document.getElementById("enegy").innerHTML = oto.getEnery();
+document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
 function btstartGame() {
     if (endGame) {
         if (confirm("Bạn muốn chơi lại !")) {
@@ -31,15 +32,15 @@ function startGame() {
         runLine(line7)
         power.autoRunItem();
         coin.autoRunCoin()
+        bullets.autoRunBullets();
         eventEatItem()
         eventEatCoin()
+        eventEatBullets()
         power.clearItem(0, 0, 310, 590)
         bar.autoRun();
         bar2.autoRun();
         eventEatBarrier(bar)
         eventEatBarrier(bar2)
-        // runBullet(bullet)
-        // eventAttackBullet(bullet1)
     }, 10);
     this.carRun = setInterval('runAfterForTimes()', 350)
     this.enegyCar = setInterval(() => {
@@ -57,6 +58,7 @@ function startGame() {
             dislayGameOver();
             stopScore();
             endGame = true;
+            
         }
     }, 1000);
     document.getElementById('btstart').disabled = true;
@@ -80,7 +82,7 @@ function pauseGame() {
     window.removeEventListener('keydown', Event_Press);
     window.removeEventListener('keydown', eventAttack)
     clearInterval(this.scoreGame);
-    document.querySelector("audio").pause();
+    document.querySelector("#music_startgame").pause();
     pause = true
 
 }
@@ -90,7 +92,9 @@ function restartGame() {
     oto.setCar(120, 500, 60, 80);
     oto.createCar(120, 500, 60, 80)
     oto.setEnery(50);
+    oto.setNumBullet(5)
     document.getElementById("enegy").innerHTML = oto.getEnery();
+    document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
     score.setPoint(0);
     document.getElementById("score").innerHTML = score.getPoint();
     let canLine = document.getElementById("gameLine");
@@ -108,6 +112,7 @@ function restartGame() {
     ctxItem.clearRect(0, 0, 310, 590);
     power.setItem();
     coin.setCoin();
+    bullets.setBulllets()
     let canBar = document.getElementById("gameBarrier");
     let ctxBar = canBar.getContext("2d");
     ctxBar.clearRect(0, 0, 310, 590);
@@ -115,6 +120,7 @@ function restartGame() {
     bar2.setBarrier()
     document.getElementById("gameOver").style.display = "none";
     document.getElementById("btrestart").disabled = true;
+
 }
 
 function btrestartGame() {
@@ -127,6 +133,11 @@ function btrestartGame() {
             restartGame();
         }
     }
+}
+function displayOption() {
+    document.getElementById("optionGame").style.display = "block";
+    document.getElementById("controlGame").style.display = "none";
+    window.removeEventListener('keydown', pressSpace)
 }
 
 function displayInstruction() {
@@ -142,44 +153,52 @@ function closeInstruction() {
 }
 
 
-let bullet1 = new Line()
-// let bullet2 = new Line(125, 250)
-// let bullet3 = new Line(125, 250)
+let bullet = new Line()
 
 
 function attackCar(bullet) {
-    let left = oto.left + oto.width / 2 + 5;
-    let top = oto.top;
-    bullet.setBullet(left, top)
-    window.removeEventListener('keydown', eventAttack)
-    this.attack = setInterval(function () {
-        runBullet(bullet)
-        eventAttackBullet(bullet)
-    }, 10)
+    if (oto.numBullet > 0) {
+        oto.attackBarrier();
+        document.getElementById("num_bullet").innerHTML = oto.getNumBullet()
+        let left = oto.left + oto.width / 2 + 5;
+        let top = oto.top;
+        bullet.setBullet(left, top)
+        
+        document.querySelector('#music_attack').play();
+      
+        this.attack = setInterval(function () {
+            runBullet(bullet)
+            eventAttackBullet(bullet)
+        }, 10)
+    }else{
+        window.removeEventListener('keydown', pressSpace);
+    }
 
 }
 
 function eventAttackBullet(bullet) {
-    if ((bullet.top == bar.top + bar.height) && (bullet.left + 10 >= bar.left) && (bullet.left <= bar.left + bar.width)) {
+    if ((bullet.top <= bar.top + bar.height) && (bullet.left + 10 >= bar.left) && (bullet.left <= bar.left + bar.width)) {
         bar.clearBarrier(0, 0, 310, 590)
         bar.setBarrier();
         score.setPoint(score.point + 20);
-       bullet.clearBullet();
-       bullet.setBullet(-50, -50)
-       clearInterval(this.attack)
+        bullet.clearBullet();
+        bullet.setBullet(-50, -50)
+        clearInterval(this.attack)
+        document.querySelector("#music_detroy").play();
     }
-    if ((bullet.top == bar2.top + bar2.height) && (bullet.left + 10 >= bar2.left) && (bullet.left <= bar2.left + bar2.width)) {
+    if ((bullet.top <= bar2.top + bar2.height) && (bullet.left + 10 >= bar2.left) && (bullet.left <= bar2.left + bar2.width)) {
         bar2.clearBarrier(0, 0, 310, 590)
         bar2.setBarrier();
         score.setPoint(score.point + 20);
         bullet.clearBullet();
-       bullet.setBullet(-50, -50)
-       clearInterval(this.attack)
+        bullet.setBullet(-50, -50)
+        clearInterval(this.attack);
+        document.querySelector("#music_detroy").play();
     }
 }
 
 function eventAttack(attack) {
-    if (attack.keyCode == 96) { attackCar(bullet1); }
+    if (attack.keyCode == 13) { attackCar(bullet); }
 }
 
 
@@ -194,6 +213,7 @@ function eventEatItem() {
         oto.setEnery(oto.enegy + 6);
     }
 }
+
 function eventEatCoin() {
     if ((coin.top <= (oto.height + oto.top))
         && (coin.top + coin.height >= oto.top)
@@ -201,6 +221,16 @@ function eventEatCoin() {
         && (coin.left <= oto.left + oto.width)) {
         coin.setCoin();
         score.setPoint(score.point + 100)
+    }
+}
+function eventEatBullets() {
+    if ((bullets.top <= (oto.height + oto.top))
+        && (bullets.top + bullets.height >= oto.top)
+        && (bullets.left + bullets.width >= oto.left)
+        && (bullets.left <= oto.left + oto.width)) {
+        bullets.setBulllets();
+        oto.setNumBullet(oto.numBullet + 1);
+        document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
     }
 }
 
