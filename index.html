@@ -10,12 +10,14 @@
 </head>
 
 <body>
-
+    
     <div id ="game"> 
-        <canvas id="gameLine" width="310px" height="600px"></canvas>
-        <canvas id="gameCar" width="310px" height="600px"></canvas>
-        <canvas id="gameItem" width="310px" height="600px"></canvas>
-        <canvas id="gameBarrier" width="310px" height="600px"></canvas>
+        <canvas id="gameLine" width="310px" height="590px"></canvas>
+        <canvas id="gameStart" width="310px" height="590px" ></canvas></canvas>
+        <canvas id="gameCar" width="310px" height="590px"></canvas>
+        <canvas id="gameItem" width="310px" height="590px"></canvas>
+        <canvas id="gameBarrier" width="310px" height="590px"></canvas>
+        <canvas id="gameBarrier2" width="310px" height="590px"  ></canvas>
         <canvas id="gameOver" width="310px" height="600px" style="display: none;"></canvas>
     </div>
 
@@ -30,8 +32,9 @@
         Score Charts <br>
         <textarea id="displayArrPoint"   cols="35" rows="10" style="font-size: 15px; resize: none;"   disabled></textarea> <br><br>
         <button type="button" id="btoption" onclick="displayOption()">Option Game</button>
+        <button type="button" onclick="displayInstruction()" style="margin-left:100px; width:100px">Instruction</button>
     </fieldset>
-    <fieldset id="optionGame" style="display: none;">
+    <fieldset id="optionGame" style="display: none; width: 330px;height: 510px;">
         <legend style="color: darkorange;font-size: 30px;">Game Option</legend>
         <br>
         Volume : <input id="vol" type="range" min=0 max="10000" value="8000" onclick="changeVol()">
@@ -52,22 +55,52 @@
         </table>
         
         <br><br>
-
         <button type="button" style="width: 71px;" onclick="saveOption()">Save</button>
         <button type="button" style="width: 71px;"  onclick="cancelOption()">Cancel</button>
         <button type="button" style="width: 71px;"  onclick="defaultOption()">Default</button>
         <button type="button" style="width: 71px;" onclick="exitOption()">Exit</button>
     </fieldset>
-    <audio id="music_stargame" loop>
+    <fieldset id="instruction" style="display: none;">
+        <legend style="color: darkorange;font-size: 30px;">Instruction</legend>
+        <button onclick="closeInstruction()" style="float: right;">Close</button><br><br>
+        <table id = "tableIntruction" style="width: 330px;background-color: white;" > 
+            <tr>
+                <td>Start Game</td>
+                <td>Press buton Start Game or press Space</td>
+            </tr>
+            <tr>
+                <td>Pause Game</td>
+                <td>Press buton Pause Game or press Space</td>
+            </tr>
+            <tr>
+                <td>Restart Game</td>
+                <td>Press buton Restart Game</td>
+
+            </tr>
+            <tr>
+                <td>Option Game</td>
+                <td>Press buton Option Game</td>
+            </tr>
+            <tr>
+                <td>Move Car</td>
+                <td>Press buton Right Numeric Keypad 0,1,2,3,4,5,6,7,8,9</td>
+            </tr>
+            
+        </table>
+        
+    </fieldset>
+    <audio id="music_stargame"  loop>
         <source src="./audio/music_game.mp3" type="audio/mpeg">
     </audio>
-
+   
     <script src="./game_car_option.js"></script>
     <script src="./game_car_barrier.js"></script>
+    <script src="./game_car_barrier2.js"></script>
     <script src="./game_car_item.js"></script>
     <script src="./game_car_car.js"></script>
-    <script src="./game_car_point.js"></script>
+    <script src="./game_car_score.js"></script>
     <script src="./game_car_line.js"></script>
+    <script src="./game_car_loading.js"></script>
 
 
 
