@@ -1,6 +1,8 @@
 //Form option
 
-let arrBeforOp = [8000, false, 8000, false , true, false, false];
+let arrBeforOp = [8000, false, 8000, false, true, false, false, true, false, false];
+
+
 
 
 function checkedMute() {
@@ -70,10 +72,19 @@ function saveOption() {
         arrBeforOp[4] = document.getElementById("car_green").checked;
         arrBeforOp[5] = document.getElementById("car_red").checked;
         arrBeforOp[6] = document.getElementById("car_yellow").checked;
-        oto.clearCar(oto.left, oto.top, oto.width, oto.height)
-        oto.createCar(oto.left, oto.top, oto.width, oto.height)
+        arrBeforOp[7] = document.getElementById("levelEasy").checked;
+        arrBeforOp[8] = document.getElementById("levelHard").checked;
+        arrBeforOp[9] = document.getElementById("levelVeryHard").checked;
+        oto.clearCar(oto.left, oto.top, oto.width, oto.height);
+        oto.createCar(oto.left, oto.top, oto.width, oto.height);
+        document.getElementById("enegy").innerHTML = oto.getEnery();
+        document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
+        displayCharts();
+        oto.setEneryandBullet();
+
     }
 }
+
 
 
 function cancelOption() {
@@ -85,6 +96,10 @@ function cancelOption() {
         document.getElementById("car_green").checked = arrBeforOp[4];
         document.getElementById("car_red").checked = arrBeforOp[5];
         document.getElementById("car_yellow").checked = arrBeforOp[6];
+        document.getElementById("levelEasy").checked = arrBeforOp[7];
+        document.getElementById("levelHard").checked = arrBeforOp[8];
+        document.getElementById("levelVeryHard").checked = arrBeforOp[9];
+        
     }
 }
 
@@ -97,8 +112,15 @@ function defaultOption() {
         document.getElementById("car_green").checked = true;
         document.getElementById("car_red").checked = false
         document.getElementById("car_yellow").checked = false;
+        document.getElementById("levelEasy").checked = true;
+        document.getElementById("levelHard").checked = false;
+        document.getElementById("levelVeryHard").checked = false;
         oto.clearCar(oto.left, oto.top, oto.width, oto.height)
         oto.createCar(oto.left, oto.top, oto.width, oto.height)
+        document.getElementById("enegy").innerHTML = oto.getEnery();
+        document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
+        displayCharts();
+        oto.setEneryandBullet();
     }
 }
 function exitOption() {
@@ -109,9 +131,18 @@ function exitOption() {
             (document.getElementById("muteSound").checked == arrBeforOp[3]) &&
             (document.getElementById("car_green").checked == arrBeforOp[4]) &&
             (document.getElementById("car_red").checked == arrBeforOp[5]) &&
-            (document.getElementById("car_yellow").checked == arrBeforOp[6])) {
+            (document.getElementById("car_yellow").checked == arrBeforOp[6]) &&
+            (document.getElementById("levelEasy").checked == arrBeforOp[7]) &&
+            (document.getElementById("levelHard").checked == arrBeforOp[8]) &&
+            (document.getElementById("levelVeryHard").checked == arrBeforOp[9])
+        ) {
             document.getElementById("optionGame").style.display = "none";
             document.getElementById("controlGame").style.display = "block";
+            document.getElementById("enegy").innerHTML = oto.getEnery();
+            document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
+            displayCharts();
+            oto.setEneryandBullet();
+
         } else {
             if (confirm("There are a few options to change, do you want to save?")) {
                 arrBeforOp[0] = document.getElementById("vol").value;
@@ -121,10 +152,18 @@ function exitOption() {
                 arrBeforOp[4] = document.getElementById("car_green").checked;
                 arrBeforOp[5] = document.getElementById("car_red").checked;
                 arrBeforOp[6] = document.getElementById("car_yellow").checked;
+                arrBeforOp[7] = document.getElementById("levelEasy").checked;
+                arrBeforOp[8] = document.getElementById("levelHard").checked;
+                arrBeforOp[9] = document.getElementById("levelVeryHard").checked;
                 document.getElementById("optionGame").style.display = "none";
                 document.getElementById("controlGame").style.display = "block";
                 oto.clearCar(oto.left, oto.top, oto.width, oto.height)
                 oto.createCar(oto.left, oto.top, oto.width, oto.height)
+                document.getElementById("enegy").innerHTML = oto.getEnery();
+                document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
+                displayCharts();
+                oto.setEneryandBullet();
+
 
             } else {
                 document.getElementById("vol").value = arrBeforOp[0];
@@ -134,8 +173,15 @@ function exitOption() {
                 document.getElementById("car_green").checked = arrBeforOp[4];
                 document.getElementById("car_red").checked = arrBeforOp[5];
                 document.getElementById("car_yellow").checked = arrBeforOp[6];
+                document.getElementById("levelEasy").checked = arrBeforOp[7];
+                document.getElementById("levelHard").checked = arrBeforOp[8];
+                document.getElementById("levelVeryHard").checked = arrBeforOp[9]
                 document.getElementById("optionGame").style.display = "none";
                 document.getElementById("controlGame").style.display = "block";
+                document.getElementById("enegy").innerHTML = oto.getEnery();
+                document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
+                displayCharts();
+                oto.setEneryandBullet();
 
             }
         }

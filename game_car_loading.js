@@ -1,9 +1,12 @@
 //Create GAME
-let endGame = false;
-let pause = false;
+let endGame ;
+let pause =true ;
 
+
+oto.setEneryandBullet();
 document.getElementById("enegy").innerHTML = oto.getEnery();
 document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
+
 function btstartGame() {
     if (endGame) {
         if (confirm("Bạn muốn chơi lại !")) {
@@ -15,9 +18,12 @@ function btstartGame() {
         startGame();
         runScore();
         endGame = false;
+        document.getElementById("levelEasy").disabled = true;
+        document.getElementById("levelHard").disabled = true;
+        document.getElementById("levelVeryHard").disabled = true;
+
     }
 }
-
 
 function startGame() {
     document.getElementById("gameStart").style.display = "none";
@@ -58,7 +64,7 @@ function startGame() {
             dislayGameOver();
             stopScore();
             endGame = true;
-            
+
         }
     }, 1000);
     document.getElementById('btstart').disabled = true;
@@ -91,8 +97,7 @@ function restartGame() {
     oto.clearCar(oto.left, oto.top, oto.width, oto.height);
     oto.setCar(120, 500, 60, 80);
     oto.createCar(120, 500, 60, 80)
-    oto.setEnery(50);
-    oto.setNumBullet(5)
+    oto.setEneryandBullet();
     document.getElementById("enegy").innerHTML = oto.getEnery();
     document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
     score.setPoint(0);
@@ -120,7 +125,11 @@ function restartGame() {
     bar2.setBarrier()
     document.getElementById("gameOver").style.display = "none";
     document.getElementById("btrestart").disabled = true;
-
+    document.getElementById("levelEasy").disabled = false;
+    document.getElementById("levelHard").disabled = false;
+    document.getElementById("levelVeryHard").disabled = false;
+    pause = false ;
+    
 }
 
 function btrestartGame() {
@@ -154,8 +163,6 @@ function closeInstruction() {
 
 
 let bullet = new Line()
-
-
 function attackCar(bullet) {
     if (oto.numBullet > 0) {
         oto.attackBarrier();
@@ -163,14 +170,12 @@ function attackCar(bullet) {
         let left = oto.left + oto.width / 2 + 5;
         let top = oto.top;
         bullet.setBullet(left, top)
-        
         document.querySelector('#music_attack').play();
-      
         this.attack = setInterval(function () {
             runBullet(bullet)
             eventAttackBullet(bullet)
         }, 10)
-    }else{
+    } else {
         window.removeEventListener('keydown', pressSpace);
     }
 
@@ -194,6 +199,7 @@ function eventAttackBullet(bullet) {
         bullet.setBullet(-50, -50)
         clearInterval(this.attack);
         document.querySelector("#music_detroy").play();
+        
     }
 }
 

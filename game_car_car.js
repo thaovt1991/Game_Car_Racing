@@ -4,19 +4,36 @@ class Car {
         this.top = top;
         this.height = height;
         this.width = width;
-        this.enegy = 50;
-        this.numBullet = 5 ;
+        this.enegy = 100;
+        this.numBullet = 20;
     }
-    getNumBullet(){
-       return this.numBullet ;
+    setEneryandBullet() {
+        switch (true) {
+            case arrBeforOp[7]:
+                this.enegy = 100;
+                this.numBullet = 20
+                break;
+            case arrBeforOp[8]:
+                this.enegy = 70;
+                this.numBullet = 5
+                break;
+            case arrBeforOp[9]:
+                this.enegy = 50;
+                this.numBullet = 1
+                break;
+        }
     }
-    setNumBullet(num){
-        this.numBullet = num ;
-     }
-    attackBarrier(){
-        if (this.numBullet >0){
-        return this.numBullet --;}else{
-          return  this.numBullet = 0 ;
+    getNumBullet() {
+        return this.numBullet;
+    }
+    setNumBullet(num) {
+        this.numBullet = num;
+    }
+    attackBarrier() {
+        if (this.numBullet > 0) {
+            return this.numBullet--;
+        } else {
+            return this.numBullet = 0;
         }
     }
     setCar(l, t, w, h) {
@@ -249,10 +266,10 @@ function Event_Press(evt) {
         case 100:
             oto.runLeft()
             break;
-        case 102: 
+        case 102:
             oto.runRight();
             break;
-        case 104: 
+        case 104:
             oto.runUp()
             break;
         case 98:
@@ -306,5 +323,5 @@ imgText.onload = function () {
     start.drawImage(imgText, 20, 260, 250, 150)
 }
 
-
+ 
 
