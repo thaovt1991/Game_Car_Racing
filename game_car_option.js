@@ -33,67 +33,42 @@ function changeVol() {
 function checkedMuteSound() {
     let value = document.getElementById("muteSound").checked;
     if (value) {
-        document.querySelector("#music_detroy").pause();
-        document.querySelector("#music_attack").pause();
-        document.querySelector("#music_endgame").pause()
-        document.querySelector("#music_open").pause()
-        document.querySelector("#music_close").pause()
-        document.querySelector("#music_energy").pause()
-        document.querySelector("#music_coin").pause()
-        document.querySelector("#music_bullet").pause()
-
-
+        document.querySelector("#music_detroy").volume = 0;
+        document.querySelector("#music_attack").volume = 0;
+        document.querySelector("#music_endgame").volume = 0;
+        document.querySelector("#music_open").volume = 0;
+        document.querySelector("#music_close").volume = 0;
+        document.querySelector("#music_energy").volume = 0;
+        document.querySelector("#music_coin").volume = 0;
+        document.querySelector("#music_bullet").volume = 0;
     } else {
         changeVolSound();
-        document.querySelector("#music_detroy").play();
-        document.querySelector("#music_attack").play();
-        document.querySelector("#music_endgame").play()
-        document.querySelector("#music_open").play()
-        document.querySelector("#music_close").play()
-        document.querySelector("#music_energy").play()
-        document.querySelector("#music_coin").play()
-        document.querySelector("#music_bullet").play()
     }
 }
 
 function changeVolSound() {
-    let value = document.getElementById("vol").value;
+    let value = document.getElementById("volSound").value;
     if (value != 0) {
         document.querySelector("#music_detroy").volume = value / 10000;
         document.querySelector("#music_attack").volume = value / 10000;
         document.querySelector("#music_endgame").volume = value / 10000;
         document.querySelector("#music_open").volume = value / 10000;
         document.querySelector("#music_close").volume = value / 10000;
-        document.getElementById('muteSound').checked = false;
-        document.querySelector("#music_detroy").play();
-        document.querySelector("#music_attack").play();
+        document.querySelector("#music_energy").volume = value / 10000;
+        document.querySelector("#music_coin").volume = value / 10000;
+        document.querySelector("#music_bullet").volume = value / 10000
+        document.getElementById('muteSound').checked = false ;
         document.querySelector("#music_endgame").play()
-        document.querySelector("#music_open").play()
-        document.querySelector("#music_close").play()
-        document.querySelector("#music_energy").play()
-        document.querySelector("#music_coin").play()
-        document.querySelector("#music_bullet").play()
-
-    } else {
-        document.getElementById('muteSound').checked = true;
-        document.querySelector("#music_detroy").pause();
-        document.querySelector("#music_attack").pause();
-        document.querySelector("#music_endgame").pause()
-        document.querySelector("#music_open").pause()
-        document.querySelector("#music_close").pause()
-        document.querySelector("#music_energy").pause()
-        document.querySelector("#music_coin").pause()
-        document.querySelector("#music_bullet").pause()
 
     }
 }
- function checked(){
+function checked() {
     document.querySelector("#music_close").play()
- }
- let radio = document.querySelectorAll('input[type=radio]');
- Array.prototype.forEach.call(radio, function(radio) {
+}
+let radio = document.querySelectorAll('input[type=radio]');
+Array.prototype.forEach.call(radio, function (radio) {
     radio.addEventListener('change', checked);
- });
+});
 
 
 
@@ -205,7 +180,7 @@ function exitOption() {
                 document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
                 displayCharts();
                 oto.setEneryandBullet();
-            
+
             } else {
                 document.getElementById("vol").value = arrBeforOp[0];
                 document.getElementById("mute").checked = arrBeforOp[1];
@@ -223,7 +198,7 @@ function exitOption() {
                 document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
                 displayCharts();
                 oto.setEneryandBullet();
-               
+
 
             }
             document.querySelector("#music_close").play()

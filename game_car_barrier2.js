@@ -16,7 +16,7 @@ class Barrier2 {
         this.speed = arrBarrier[random][3];
         this.width = arrBarrier[random][1]
         this.height = arrBarrier[random][2]
-        this.top = -(Math.floor(Math.random() * (590 - this.height)) + this.height + bar.height);
+        this.top = -(Math.floor(Math.random() * (590 - this.height))  + bar.top );
         if ((bar.left - this.width) > 0 ) {
             leftBar2 = Math.floor(Math.random() * (bar.left - this.width));
          } else {
@@ -61,7 +61,6 @@ class Barrier2 {
         } else {
             this.setBarrier();
         }
-        this.clearBarrier(this.left, this.top - this.speed, this.width, this.height)
         this.createBarrier(this.left, this.top, this.width, this.height);
     }
 
@@ -85,7 +84,7 @@ class Barrier2 {
 
 random2 = Math.floor(Math.random() * (arrBarrier.length - 1));
 imageBar2 = arrBarrier[random2][0]
-topBar2 = -(Math.floor(Math.random() * (590 - this.height)) + this.height + bar.height );
+topBar2 = -(Math.floor(Math.random() * (590 - this.height))  + bar.top );
 widthBar2 = arrBarrier[random2][1]
 heightBar2 = arrBarrier[random2][2]
 let leftBar2 = 0 ;

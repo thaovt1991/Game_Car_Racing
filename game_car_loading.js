@@ -37,16 +37,18 @@ function startGame() {
         runLine(line6)
         runLine(line7)
         power.autoRunItem()
+        power.clearItem(0, 0, 310, 590)
         coin.autoRunCoin()
         bullets.autoRunBullets();
-        power.clearItem(0, 0, 310, 590)
         eventEatItem()
         eventEatCoin()
         eventEatBullets()
         bar.autoRun();
+        bar.clearBarrier(0,0,310,590);
         bar2.autoRun();
+        bar2.clearBarrier(0,0,310,590);
         eventEatBarrier(bar)
-        eventEatBarrier(bar2)
+        eventEatBarrier(bar2) 
     }, 10);
     this.carRun = setInterval('runAfterForTimes()', 350)
     this.enegyCar = setInterval(() => {
@@ -71,9 +73,10 @@ function startGame() {
     document.getElementById('btpause').disabled = false;
     document.getElementById("btrestart").disabled = true;
     document.getElementById("btoption").disabled = true;
-    checkedMute()
     window.addEventListener('keydown', Event_Press);
-    window.addEventListener('keydown', eventAttack)
+    window.addEventListener('keydown', eventAttack);
+    checkedMute()
+   
 }
 
 
@@ -247,7 +250,6 @@ function eventEatBullets() {
         bullets.setBulllets();
         oto.setNumBullet(oto.numBullet + 1);
         document.querySelector("#music_bullet").play();
-      //  document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
     }
 }
 

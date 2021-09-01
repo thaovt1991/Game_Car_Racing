@@ -68,7 +68,6 @@ class Barrier {
         } else {
             this.setBarrier();
         }
-        this.clearBarrier(this.left, this.top - this.speed, this.width, this.height)
         this.createBarrier(this.left, this.top, this.width, this.height);
     }
 
