@@ -308,20 +308,26 @@ function dislayGameOver() {
     document.getElementById("gameOver").style.position = "absolute";
     document.querySelector('#music_endgame').play();
     document.getElementById("btrestart").disabled = true ;
+  
 };
 
 
 let canvas5 = document.getElementById("gameStart");
 let start = canvas5.getContext("2d");
+var imgName = new Image();
+imgName.src = "./image/name_game.png"
+imgName.onload = function(){
+    start.drawImage(imgName, 20,50,290,100)
+}
 var imgFlag = new Image();
 imgFlag.src = "./image/flag.png"
 imgFlag.onload = function () {
-    start.drawImage(imgFlag, 100, 150, 100, 100)
+    start.drawImage(imgFlag, 100, 180, 100, 100)
 }
 var imgText = new Image();
 imgText.src = "./image/startgame.png";
 imgText.onload = function () {
-    start.drawImage(imgText, 20, 260, 250, 150)
+    start.drawImage(imgText, 20, 300, 250, 150)
 }
 
  

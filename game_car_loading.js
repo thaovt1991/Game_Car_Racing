@@ -1,6 +1,6 @@
 //Create GAME
-let endGame ;
-let pause =true ;
+let endGame;
+let pause = true;
 
 
 oto.setEneryandBullet();
@@ -14,7 +14,7 @@ function btstartGame() {
             restartGame();
             displayCharts();
             endGame = false;
-        } 
+        }
     } else {
         startGame();
         runScore();
@@ -44,11 +44,11 @@ function startGame() {
         eventEatCoin()
         eventEatBullets()
         bar.autoRun();
-        bar.clearBarrier(0,0,310,590);
+        bar.clearBarrier(0, 0, 310, 590);
         bar2.autoRun();
-        bar2.clearBarrier(0,0,310,590);
+        bar2.clearBarrier(0, 0, 310, 590);
         eventEatBarrier(bar)
-        eventEatBarrier(bar2) 
+        eventEatBarrier(bar2)
     }, 10);
     this.carRun = setInterval('runAfterForTimes()', 350)
     this.enegyCar = setInterval(() => {
@@ -65,7 +65,7 @@ function startGame() {
             pauseGame();
             dislayGameOver();
             stopScore();
-            endGame = true ;
+            endGame = true;
 
         }
     }, 1000);
@@ -76,7 +76,7 @@ function startGame() {
     window.addEventListener('keydown', Event_Press);
     window.addEventListener('keydown', eventAttack);
     checkedMute()
-   
+
 }
 
 
@@ -93,9 +93,8 @@ function pauseGame() {
     clearInterval(this.scoreGame);
     document.querySelector("#music_startgame").pause();
     pause = true
-
 }
-function btpauseGame(){
+function btpauseGame() {
     document.querySelector("#music_open").play()
     pauseGame();
 }
@@ -135,8 +134,8 @@ function restartGame() {
     document.getElementById("levelEasy").disabled = false;
     document.getElementById("levelHard").disabled = false;
     document.getElementById("levelVeryHard").disabled = false;
-    pause = false ;
-    
+    pause = false;
+
 }
 
 function btrestartGame() {
@@ -150,7 +149,7 @@ function btrestartGame() {
             restartGame();
         }
     }
-} 
+}
 function displayOption() {
     document.querySelector("#music_open").play()
     document.getElementById("optionGame").style.display = "block";
@@ -210,7 +209,7 @@ function eventAttackBullet(bullet) {
         bullet.setBullet(-50, -50)
         clearInterval(this.attack);
         document.querySelector("#music_detroy").play();
-        
+
     }
 }
 
