@@ -317,7 +317,7 @@ let start = canvas5.getContext("2d");
 var imgName = new Image();
 imgName.src = "./image/name_game.png"
 imgName.onload = function(){
-    start.drawImage(imgName, 20,50,290,100)
+    start.drawImage(imgName, 15,50,290,100)
 }
 var imgFlag = new Image();
 imgFlag.src = "./image/flag.png"
