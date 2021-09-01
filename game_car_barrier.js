@@ -25,9 +25,9 @@ class Barrier {
     setBarrier() {
         let random = Math.floor(Math.random() * (arrBarrier.length - 1));
         this.imageBarrier = arrBarrier[random][0]
-        this.speed = arrBarrier[random][3]
         this.width = arrBarrier[random][1]
         this.height = arrBarrier[random][2]
+        this.speed = arrBarrier[random][3]
         this.top = -(Math.floor(Math.random() * (500 - this.height)) + this.height);
         this.left = Math.floor(Math.random() * (310 - this.width));   
     }

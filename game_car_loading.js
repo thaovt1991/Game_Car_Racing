@@ -8,6 +8,7 @@ document.getElementById("enegy").innerHTML = oto.getEnery();
 document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
 
 function btstartGame() {
+    document.querySelector("#music_open").play()
     if (endGame) {
         if (confirm("Bạn muốn chơi lại !")) {
             restartGame();
@@ -21,7 +22,6 @@ function btstartGame() {
         document.getElementById("levelEasy").disabled = true;
         document.getElementById("levelHard").disabled = true;
         document.getElementById("levelVeryHard").disabled = true;
-
     }
 }
 
@@ -36,13 +36,13 @@ function startGame() {
         runLine(line5)
         runLine(line6)
         runLine(line7)
-        power.autoRunItem();
+        power.autoRunItem()
         coin.autoRunCoin()
         bullets.autoRunBullets();
+        power.clearItem(0, 0, 310, 590)
         eventEatItem()
         eventEatCoin()
         eventEatBullets()
-        power.clearItem(0, 0, 310, 590)
         bar.autoRun();
         bar2.autoRun();
         eventEatBarrier(bar)
@@ -92,6 +92,10 @@ function pauseGame() {
     pause = true
 
 }
+function btpauseGame(){
+    document.querySelector("#music_open").play()
+    pauseGame();
+}
 function restartGame() {
     document.getElementById("gameStart").style.display = "block";
     oto.clearCar(oto.left, oto.top, oto.width, oto.height);
@@ -133,6 +137,7 @@ function restartGame() {
 }
 
 function btrestartGame() {
+    document.querySelector("#music_open").play()
     if (confirm("Are you sure Restart Game !")) {
         if (endGame) {
             restartGame();
@@ -142,20 +147,23 @@ function btrestartGame() {
             restartGame();
         }
     }
-}
+} 
 function displayOption() {
+    document.querySelector("#music_open").play()
     document.getElementById("optionGame").style.display = "block";
     document.getElementById("controlGame").style.display = "none";
     window.removeEventListener('keydown', pressSpace)
 }
 
 function displayInstruction() {
+    document.querySelector("#music_open").play()
     document.getElementById("instruction").style.display = "block";
     document.getElementById("instruction").width = "350";
     document.getElementById("controlGame").style.display = "none";
 
 }
 function closeInstruction() {
+    document.querySelector("#music_close").play()
     document.getElementById("instruction").style.display = "none";
     document.getElementById("controlGame").style.display = "block";
 

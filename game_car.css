@@ -1,6 +1,6 @@
 body{
     background-image: url(./image/car-racing.jpeg);
-    background-size: 100%;
+    background-size:100%;
     background-clip: border-box;
     background-origin: border-box;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body{
     height: 590px;
     border: 10px double red;
     background-color: darkslategrey  ; 
-      border-image-source:  url(./image/border.png); 
+    border-image-source:  url(./image/border.png); 
     border-image-slice:0 20 0 20;
     border-image-repeat:round; 
     border-image-outset:0px;

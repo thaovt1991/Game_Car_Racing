@@ -62,7 +62,6 @@ function displayCharts() {
             arrPoint = score.arrPointVeryHard;
             break;
     }
-    console.log(str)
     arrPoint.sort(function (a, b) {
         return b - a;
     });
