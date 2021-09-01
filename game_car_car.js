@@ -307,6 +307,7 @@ function dislayGameOver() {
     document.getElementById("gameOver").style.zIndex = "10";
     document.getElementById("gameOver").style.position = "absolute";
     document.querySelector('#music_endgame').play();
+    document.getElementById("btrestart").disabled = true ;
 };
 
 

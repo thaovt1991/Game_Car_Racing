@@ -14,7 +14,7 @@ function btstartGame() {
             restartGame();
             displayCharts();
             endGame = false;
-        } else dislayGameOver();
+        } 
     } else {
         startGame();
         runScore();
@@ -65,7 +65,7 @@ function startGame() {
             pauseGame();
             dislayGameOver();
             stopScore();
-            endGame = true;
+            endGame = true ;
 
         }
     }, 1000);
