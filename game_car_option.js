@@ -38,6 +38,10 @@ function checkedMuteSound() {
         document.querySelector("#music_endgame").pause()
         document.querySelector("#music_open").pause()
         document.querySelector("#music_close").pause()
+        document.querySelector("#music_energy").pause()
+        document.querySelector("#music_coin").pause()
+        document.querySelector("#music_bullet").pause()
+
 
     } else {
         changeVolSound();
@@ -46,6 +50,9 @@ function checkedMuteSound() {
         document.querySelector("#music_endgame").play()
         document.querySelector("#music_open").play()
         document.querySelector("#music_close").play()
+        document.querySelector("#music_energy").play()
+        document.querySelector("#music_coin").play()
+        document.querySelector("#music_bullet").play()
     }
 }
 
@@ -63,6 +70,9 @@ function changeVolSound() {
         document.querySelector("#music_endgame").play()
         document.querySelector("#music_open").play()
         document.querySelector("#music_close").play()
+        document.querySelector("#music_energy").play()
+        document.querySelector("#music_coin").play()
+        document.querySelector("#music_bullet").play()
 
     } else {
         document.getElementById('muteSound').checked = true;
@@ -71,6 +81,9 @@ function changeVolSound() {
         document.querySelector("#music_endgame").pause()
         document.querySelector("#music_open").pause()
         document.querySelector("#music_close").pause()
+        document.querySelector("#music_energy").pause()
+        document.querySelector("#music_coin").pause()
+        document.querySelector("#music_bullet").pause()
 
     }
 }
