@@ -99,6 +99,22 @@ let bar = new Barrier(imageBar, leftBar, topBar, widthBar, heightBar);
 bar.createBarrier(leftBar, topBar, widthBar, heightBar)
 
 
+random2 = Math.floor(Math.random() * (arrBarrier.length - 1));
+imageBar2 = arrBarrier[random2][0]
+topBar2 = - (Math.floor(Math.random() * (590 - this.height)) ) + bar.top ;
+widthBar2 = arrBarrier[random2][1]
+heightBar2 = arrBarrier[random2][2]
+let leftBar2 = 0 ;
+ if ((bar.left - this.width) > 0 ) {
+    leftBar2 = Math.floor(Math.random() * (bar.left - this.width));
+ } else {
+     leftBar2 = Math.floor(Math.random() * (250  - (bar.width + bar.left))) + (bar.width + bar.left) - this.width
+}
+
+let bar2 = new Barrier(imageBar2, leftBar2, topBar2, widthBar2, heightBar2);
+bar2.createBarrier(leftBar2, topBar2, widthBar2, heightBar2)
+
+
 
 
 

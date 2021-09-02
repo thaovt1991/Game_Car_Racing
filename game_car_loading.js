@@ -44,9 +44,8 @@ function startGame() {
         eventEatCoin()
         eventEatBullets()
         bar.autoRun();
-        bar.clearBarrier(0, 0, 310, 590);
         bar2.autoRun();
-        bar2.clearBarrier(0, 0, 310, 590);
+        bar.clearBarrier(0, 0, 310, 590);
         eventEatBarrier(bar)
         eventEatBarrier(bar2)
     }, 10);
