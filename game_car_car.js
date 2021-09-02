@@ -264,15 +264,19 @@ oto.createCar(oto.left, oto.top, oto.width, oto.height);
 function Event_Press(evt) {
     switch (evt.keyCode) {
         case 100:
+        case 37:    
             oto.runLeft()
             break;
         case 102:
+        case  39:
             oto.runRight();
             break;
         case 104:
+        case 38:    
             oto.runUp()
             break;
         case 98:
+        case 40:
             oto.runDown()
             break;
         case 103:
