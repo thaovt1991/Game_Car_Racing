@@ -60,7 +60,7 @@ class Line {
     clearLine() {
         let canvas = document.getElementById("gameLine");
         let ctx = canvas.getContext("2d");
-        ctx.clearRect(this.left, this.top , this.width, this.height)
+        ctx.clearRect(this.left, this.top, this.width, this.height)
     }
     createBullet() {
         let canvas = document.getElementById("gameLine");
@@ -90,20 +90,19 @@ let line7 = new Line(150, -650, 10, 50);
 
 function runLine(line) {
     if (line.top > 590) {
-        line.top = -100 
+        line.top = -100
     }
     line.clearLine();
     line.runLineDown()
     line.createLine();
+
 };
 
 
-
-
-
 function runBullet(bullet) {
-    if (bullet.top < -10) {
+    if (bullet.top < -5) {
         bullet.clearBullet();
+        bullet.top = -1000;
     } else {
         bullet.clearBullet();
         bullet.top -= 10;

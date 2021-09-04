@@ -117,7 +117,7 @@ let imageBar2 = arrBarrier[random2][0]
 let widthBar2 = arrBarrier[random2][1]
 let heightBar2 = arrBarrier[random2][2]
 let speedBar2 = arrBarrier[random2][3]
-let topBar2 =  bar.top - heightBar2 - 200;
+let topBar2 =  bar.top - heightBar2 
 let leftBar2 = 0;
 if ((bar.left - widthBar2) > 0) {
     leftBar2 = Math.floor(Math.random() * (bar.left - widthBar2));

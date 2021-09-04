@@ -196,7 +196,7 @@ function eventAttackBullet(bullet) {
         bar.setBarrier();
         score.setPoint(score.point + 20);
         bullet.clearBullet();
-        bullet.setBullet(-50, -50)
+        bullet.setBullet(-50, -1000)
         clearInterval(this.attack)
         document.querySelector("#music_detroy").play();
     }
@@ -205,7 +205,7 @@ function eventAttackBullet(bullet) {
         bar2.setBarrier();
         score.setPoint(score.point + 20);
         bullet.clearBullet();
-        bullet.setBullet(-50, -50)
+        bullet.setBullet(-50, -1000)
         clearInterval(this.attack);
         document.querySelector("#music_detroy").play();
 
