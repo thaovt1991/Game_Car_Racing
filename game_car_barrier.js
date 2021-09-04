@@ -93,17 +93,19 @@ let random = Math.floor(Math.random() * (arrBarrier.length - 1))
 let imageBar = arrBarrier[random][0];
 let widthBar = arrBarrier[random][1]
 let heightBar = arrBarrier[random][2]
+let speedBar = arrBarrier[random][3]
 let topBar = -(Math.floor(Math.random() * 1000 + arrBarrier[random][2]));
 let leftBar = Math.floor(Math.random() * (310 - arrBarrier[random][1]));
-let bar = new Barrier(imageBar, leftBar, topBar, widthBar, heightBar);
+let bar = new Barrier(imageBar, leftBar, topBar, widthBar, heightBar,speedBar);
 bar.createBarrier(leftBar, topBar, widthBar, heightBar)
 
 
-random2 = Math.floor(Math.random() * (arrBarrier.length - 1));
-imageBar2 = arrBarrier[random2][0]
-topBar2 = - (Math.floor(Math.random() * (590 - this.height)) ) + bar.top ;
-widthBar2 = arrBarrier[random2][1]
-heightBar2 = arrBarrier[random2][2]
+let random2 = Math.floor(Math.random() * (arrBarrier.length - 1));
+let imageBar2 = arrBarrier[random2][0]
+let topBar2 = - (Math.floor(Math.random() * (590 - this.height)) ) + bar.top ;
+let widthBar2 = arrBarrier[random2][1]
+let heightBar2 = arrBarrier[random2][2]
+let speedBar2 = arrBarrier[random2][3]
 let leftBar2 = 0 ;
  if ((bar.left - this.width) > 0 ) {
     leftBar2 = Math.floor(Math.random() * (bar.left - this.width));
@@ -111,7 +113,7 @@ let leftBar2 = 0 ;
      leftBar2 = Math.floor(Math.random() * (250  - (bar.width + bar.left))) + (bar.width + bar.left) - this.width
 }
 
-let bar2 = new Barrier(imageBar2, leftBar2, topBar2, widthBar2, heightBar2);
+let bar2 = new Barrier(imageBar2, leftBar2, topBar2, widthBar2, heightBar2,speedBar2);
 bar2.createBarrier(leftBar2, topBar2, widthBar2, heightBar2)
 
 
