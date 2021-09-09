@@ -226,6 +226,7 @@ function eventEatItem() {
         && (power.left <= oto.left + oto.width)) {
         power.setItem();
         oto.setEnery(oto.enegy + 6);
+        document.getElementById("enegy").innerHTML = oto.getEnery();
         document.querySelector("#music_energy").play();
     }
 }
@@ -237,6 +238,7 @@ function eventEatCoin() {
         && (coin.left <= oto.left + oto.width)) {
         coin.setCoin();
         score.setPoint(score.point + 100);
+        document.getElementById("enegy").innerHTML = oto.getPoint();
         document.querySelector("#music_coin").play();
     }
 }
@@ -247,6 +249,7 @@ function eventEatBullets() {
         && (bullets.left <= oto.left + oto.width)) {
         bullets.setBulllets();
         oto.setNumBullet(oto.numBullet + 1);
+        document.getElementById("num_bullet").innerHTML = oto.getNumBullet();
         document.querySelector("#music_bullet").play();
     }
 }
