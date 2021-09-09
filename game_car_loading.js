@@ -174,7 +174,6 @@ function closeInstruction() {
 let bullet = new Line()
 function attackCar(bullet) {
     if (oto.numBullet > 0) {
-        window.addEventListener('keydown', pressSpace);
         oto.attackBarrier();
         document.getElementById("num_bullet").innerHTML = oto.getNumBullet()
         let left = oto.left + oto.width / 2 + 5;
@@ -185,8 +184,6 @@ function attackCar(bullet) {
             runBullet(bullet)
             eventAttackBullet(bullet)
         }, 10)
-    } else {
-        window.removeEventListener('keydown', pressSpace);
     }
 
 }
@@ -214,7 +211,9 @@ function eventAttackBullet(bullet) {
 }
 
 function eventAttack(attack) {
-    if (attack.keyCode == 13) { attackCar(bullet); }
+    if (attack.keyCode == 13) {
+        if (oto.numBullet > 0){ attackCar(bullet);}
+         }
 }
 
 
@@ -239,7 +238,7 @@ function eventEatCoin() {
         && (coin.left <= oto.left + oto.width)) {
         coin.setCoin();
         score.setPoint(score.point + 100);
-        document.getElementById("score").innerHTML = oto.getPoint();
+        document.getElementById("score").innerHTML = score.getPoint();
         document.querySelector("#music_coin").play();
     }
 }
