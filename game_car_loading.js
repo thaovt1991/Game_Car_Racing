@@ -238,7 +238,7 @@ function eventEatCoin() {
         && (coin.left <= oto.left + oto.width)) {
         coin.setCoin();
         score.setPoint(score.point + 100);
-        document.getElementById("enegy").innerHTML = oto.getPoint();
+        document.getElementById("score").innerHTML = oto.getPoint();
         document.querySelector("#music_coin").play();
     }
 }
