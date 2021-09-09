@@ -174,6 +174,7 @@ function closeInstruction() {
 let bullet = new Line()
 function attackCar(bullet) {
     if (oto.numBullet > 0) {
+        window.addEventListener('keydown', pressSpace);
         oto.attackBarrier();
         document.getElementById("num_bullet").innerHTML = oto.getNumBullet()
         let left = oto.left + oto.width / 2 + 5;
